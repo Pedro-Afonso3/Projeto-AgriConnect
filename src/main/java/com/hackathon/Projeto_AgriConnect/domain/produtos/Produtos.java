@@ -1,35 +1,63 @@
 package com.hackathon.Projeto_AgriConnect.domain.produtos;
 
-import com.hackathon.Projeto_AgriConnect.domain.agricultor.Agricultor;
-import com.hackathon.Projeto_AgriConnect.domain.contaAgricultor.contaAgricultor;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
 @Table(name="produtos")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Produtos {
+public class Produtos implements Serializable {
 
+    private static final Long serialVersionUID =1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name="nome")
     private String nome;
 
     @Column(name="preco")
-    private float preco;
+    private BigDecimal preco;
 
     @Column(name="quantidade")
     private Integer quantidade;
+
+    public static Long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
 
 }
