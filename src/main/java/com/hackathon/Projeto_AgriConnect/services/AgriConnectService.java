@@ -1,4 +1,4 @@
-package com.hackathon.Projeto_AgriConnect.services;
+/*package com.hackathon.Projeto_AgriConnect.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,4 +10,4 @@ public class AgriConnectService {
   @Autowired
   private agricultorRepository AgricultorRepository;
 
-}
+}*/

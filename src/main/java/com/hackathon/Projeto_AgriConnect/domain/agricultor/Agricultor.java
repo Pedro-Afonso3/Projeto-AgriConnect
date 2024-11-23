@@ -1,5 +1,7 @@
 package com.hackathon.Projeto_AgriConnect.domain.agricultor;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hackathon.Projeto_AgriConnect.domain.contaAgricultor.contaAgricultor;
 import com.hackathon.Projeto_AgriConnect.domain.entregas.Entregas;
 import com.hackathon.Projeto_AgriConnect.domain.produtos.Produtos;
@@ -10,7 +12,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name="agricultor")
@@ -18,6 +19,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Agricultor {
 
     @Id
@@ -27,8 +29,17 @@ public class Agricultor {
     @Column(name="nome")
     private String nome;
 
-    @Column(name="localizacao")
-    private String localizacao; //TODO: procurar endereço via CEP
+
+
+    private String cep;
+    private String logradouro;
+    private String complemento;
+    private String bairro;
+    private String localidade;
+    private String uf;
+    private String estado;
+    private String regiao;
+
 
     @Column(name="produtosDisponiveis")
     @OneToMany
@@ -37,9 +48,5 @@ public class Agricultor {
     @OneToOne
     @JoinColumn(name = "contaAgricultor_id")
     private contaAgricultor contaAgricultor;
-
-    @OneToOne
-    @JoinColumn(name = "entrega_id")
-    private Entregas entregas;
 
 }

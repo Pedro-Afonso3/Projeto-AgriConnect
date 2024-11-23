@@ -35,7 +35,4 @@ public class Transportador {
     @Column(name="areaCobertura")
     private float areaCobertura ;
 
-    @OneToOne
-    @JoinColumn(name = "entregas_id")
-    private Entregas entregas;
 }
