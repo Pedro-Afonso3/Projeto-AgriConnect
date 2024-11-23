@@ -1,5 +1,6 @@
 package com.hackathon.Projeto_AgriConnect.domain.agricultor;
 
+import com.hackathon.Projeto_AgriConnect.domain.produtos.Produtos;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,8 +28,7 @@ public class Agricultor {
     private String localizacao; //TODO: procurar endereço via CEP
 
     @Column(name="produtosDisponiveis")
-    private List produtosDisponiveis;
+    @OneToMany
+    private List<Produtos> produtosDisponiveisComQtd;
 
-    @Column(name="quantidade")
-    private List quantidade ;
 }
