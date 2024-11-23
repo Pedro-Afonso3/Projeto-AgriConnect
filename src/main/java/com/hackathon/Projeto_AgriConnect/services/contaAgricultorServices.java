@@ -22,11 +22,11 @@ public class contaAgricultorServices {
         return repository.findAll();
     }
 
-    public void deleteConta(UUID id){
+    public void deleteConta(Long id){
         repository.deleteById(id);
     }
 
-    public void updateConta(UUID id,contaAgricultor contaAgricultor){
+    public void updateConta(Long id,contaAgricultor contaAgricultor){
         Optional<contaAgricultor> contaAgricultor1 =repository.findById(id);
         if(contaAgricultor1.isPresent()){
             contaAgricultor contaAgricultorExisting = contaAgricultor1.get();

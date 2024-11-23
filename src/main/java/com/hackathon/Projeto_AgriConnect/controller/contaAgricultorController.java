@@ -4,10 +4,7 @@ import com.hackathon.Projeto_AgriConnect.domain.contaAgricultor.contaAgricultor;
 import com.hackathon.Projeto_AgriConnect.services.contaAgricultorServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/contaAgricultor")
@@ -18,6 +15,12 @@ public class contaAgricultorController {
     @PostMapping
     public ResponseEntity<contaAgricultor> insertLogin(@RequestBody contaAgricultor contaAgricultor){
         contaAgricultorServices.insertConta(contaAgricultor);
+        return ResponseEntity.ok(contaAgricultor);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<contaAgricultor> updateLogin(@PathVariable Long id, @RequestBody contaAgricultor contaAgricultor){
+        contaAgricultorServices.updateConta(id,contaAgricultor);
         return ResponseEntity.ok(contaAgricultor);
     }
 }
