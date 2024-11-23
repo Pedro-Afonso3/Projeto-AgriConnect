@@ -9,37 +9,42 @@ import com.hackathon.Projeto_AgriConnect.services.contaAgricultorServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 //import com.google.gson.Gson;
-import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.Moshi;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.net.URLConnection;
+import java.util.List;
 
-
-@RestController("/agricultor")
+@RestController
+@RequestMapping("/agricultor")
 public class agricultorController {
 
     @Autowired
     AgricultorServices agricultorServices;
 
+    @GetMapping
+    public List<Agricultor> findAll() {
+        List<Agricultor> result = agricultorServices.findAll();
+        return result;
+    }
+
     @Autowired
     contaAgricultorServices contaAgricultorServices;
 
-    @PostMapping("/insertAgricultor")
+    @PostMapping()
     public ResponseEntity<Agricultor> insertAgricultor(@RequestBody Agricultor agricultor) throws IOException {
         URL url = new URL("https://viacep.com.br/ws/" + agricultor.getCep() + "/json/");
 
         StringBuilder jsonCep = new StringBuilder();
         try (InputStream is = url.openStream();
-             BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"))) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"))) {
 
             String line;
             while ((line = br.readLine()) != null) {
@@ -62,7 +67,8 @@ public class agricultorController {
         agricultor.setEstado(dadosCep.getEstado());
         agricultor.setRegiao(dadosCep.getRegiao());
         if (agricultor.getContaAgricultor() != null && agricultor.getContaAgricultor().getId() == null) {
-            contaAgricultorServices.insertConta(agricultor.getContaAgricultor()); }
+            contaAgricultorServices.insertConta(agricultor.getContaAgricultor());
+        }
 
         // Insere o agricultor
         agricultorServices.insertAgricultor(agricultor);
@@ -71,6 +77,3 @@ public class agricultorController {
     }
 
 }
-
-
-
