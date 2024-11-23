@@ -13,7 +13,7 @@ import com.hackathon.Projeto_AgriConnect.repository.EntregasRepository;
 public class entregasServices {
   private EntregasRepository entregasRepository;
 
-  public Optional<Entregas> findById(UUID id) {
+  public Optional<Entregas> findById(Long id) {
     Optional<Entregas> result = entregasRepository.findById(id);
     return result;
   }

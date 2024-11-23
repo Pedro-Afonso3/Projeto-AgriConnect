@@ -23,4 +23,15 @@ public class contaAgricultorController {
         contaAgricultorServices.updateConta(id,contaAgricultor);
         return ResponseEntity.ok(contaAgricultor);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<contaAgricultor> deleteLogin(@PathVariable Long id){
+        contaAgricultorServices.deleteConta(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<Iterable<contaAgricultor>> showContas(){
+        return ResponseEntity.ok(contaAgricultorServices.showContas());
+    }
 }
