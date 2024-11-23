@@ -9,9 +9,7 @@ import com.hackathon.Projeto_AgriConnect.services.contaAgricultorServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 //import com.google.gson.Gson;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
@@ -22,6 +20,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Optional;
 
 
 @RestController("/agricultor")
@@ -71,6 +70,27 @@ public class agricultorController {
         return ResponseEntity.ok(agricultor);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Agricultor> update(@PathVariable Long id,@RequestBody Agricultor agricultor) throws Exception {
+        agricultorServices.updateAgricultor(id,agricultor);
+        return ResponseEntity.ok(agricultor);
+    }
+
+    @GetMapping
+    public ResponseEntity<Iterable<Agricultor>> showAllAgricultores(){
+        return ResponseEntity.ok(agricultorServices.showAgricultores());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Agricultor>> showAgricultoresById(Long id){
+        return ResponseEntity.ok(agricultorServices.showAgricultoresById(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Agricultor> deleteAgricultor(Long id){
+        agricultorServices.deleteAgricultor(id);
+        return ResponseEntity.ok().build();
+    }
 }
 
 
