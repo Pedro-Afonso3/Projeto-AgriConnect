@@ -20,8 +20,8 @@ public class entregasController {
   private entregasServices serviciEntregasServices;
 
   @GetMapping(value = "/{id}")
-  public Optional<Entregas> findByEntregas(@PathVariable UUID id){
-    Optional<Entregas> result = serviciEntregasServices.findById(null);
+  public Optional<Entregas> findByEntregas(@PathVariable Long id){
+    Optional<Entregas> result = serviciEntregasServices.findById(id);
     return result;
   }
 

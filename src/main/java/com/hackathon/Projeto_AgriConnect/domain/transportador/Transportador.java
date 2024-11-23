@@ -34,6 +34,6 @@ public class Transportador {
     private Integer capacidade;
 
     @Column(name="areaCobertura")
-    private float areaCobertura ;
+    private Float areaCobertura ;
 
 }

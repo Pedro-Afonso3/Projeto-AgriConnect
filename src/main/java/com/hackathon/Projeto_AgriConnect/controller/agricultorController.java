@@ -9,42 +9,36 @@ import com.hackathon.Projeto_AgriConnect.services.contaAgricultorServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 //import com.google.gson.Gson;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.List;
+import java.net.URLConnection;
+import java.util.Optional;
 
-@RestController
-@RequestMapping("/agricultor")
+
+@RestController("/agricultor")
 public class agricultorController {
 
     @Autowired
     AgricultorServices agricultorServices;
 
-    @GetMapping
-    public List<Agricultor> findAll() {
-        List<Agricultor> result = agricultorServices.findAll();
-        return result;
-    }
-
     @Autowired
     contaAgricultorServices contaAgricultorServices;
 
-    @PostMapping()
+    @PostMapping("/insertAgricultor")
     public ResponseEntity<Agricultor> insertAgricultor(@RequestBody Agricultor agricultor) throws IOException {
         URL url = new URL("https://viacep.com.br/ws/" + agricultor.getCep() + "/json/");
 
         StringBuilder jsonCep = new StringBuilder();
         try (InputStream is = url.openStream();
-                BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"))) {
+             BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"))) {
 
             String line;
             while ((line = br.readLine()) != null) {
@@ -68,8 +62,7 @@ public class agricultorController {
         agricultor.setRegiao(dadosCep.getRegiao());
 
         if (agricultor.getContaAgricultor() != null && agricultor.getContaAgricultor().getId() == null) {
-            contaAgricultorServices.insertConta(agricultor.getContaAgricultor());
-        }
+            contaAgricultorServices.insertConta(agricultor.getContaAgricultor()); }
 
 
         agricultorServices.insertAgricultor(agricultor);
@@ -77,4 +70,28 @@ public class agricultorController {
         return ResponseEntity.ok(agricultor);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Agricultor> update(@PathVariable Long id,@RequestBody Agricultor agricultor) throws Exception {
+        agricultorServices.updateAgricultor(id,agricultor);
+        return ResponseEntity.ok(agricultor);
+    }
+
+    @GetMapping
+    public ResponseEntity<Iterable<Agricultor>> showAllAgricultores(){
+        return ResponseEntity.ok(agricultorServices.showAgricultores());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Agricultor>> showAgricultoresById(Long id){
+        return ResponseEntity.ok(agricultorServices.showAgricultoresById(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Agricultor> deleteAgricultor(Long id){
+        agricultorServices.deleteAgricultor(id);
+        return ResponseEntity.ok().build();
+    }
 }
+
+
+
