@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.hackathon.Projeto_AgriConnect.domain.entregas.Entregas;
-import com.hackathon.Projeto_AgriConnect.domain.produtos.Produtos;
+import com.hackathon.Projeto_AgriConnect.domain.produtos.ProdutosAgricultor;
 import com.hackathon.Projeto_AgriConnect.repository.EntregasRepository;
 
 @Service

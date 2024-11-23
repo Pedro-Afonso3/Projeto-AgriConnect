@@ -3,8 +3,7 @@ package com.hackathon.Projeto_AgriConnect.domain.agricultor;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hackathon.Projeto_AgriConnect.domain.contaAgricultor.contaAgricultor;
-import com.hackathon.Projeto_AgriConnect.domain.entregas.Entregas;
-import com.hackathon.Projeto_AgriConnect.domain.produtos.Produtos;
+import com.hackathon.Projeto_AgriConnect.domain.produtos.ProdutosAgricultor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,7 +42,7 @@ public class Agricultor {
 
     @Column(name="produtosDisponiveis")
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Produtos> produtosDisponiveis;
+    private List<ProdutosAgricultor> produtosDisponiveis;
 
     @OneToOne
     @JoinColumn(name = "contaAgricultor_id")
