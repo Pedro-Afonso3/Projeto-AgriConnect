@@ -4,6 +4,6 @@ CREATE TABLE transportador(
     veiculo VARCHAR(100) NOT NULL,
     capacidade INTEGER NOT NULL,
     areaCobertura FLOAT NOT NULL,
-    entrega_id UUID,
+    entrega_id BIGINT,
      CONSTRAINT fk_entrega FOREIGN KEY (entrega_id) REFERENCES entregas (id) ON DELETE CASCADE
 );

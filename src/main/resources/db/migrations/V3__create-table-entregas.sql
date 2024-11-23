@@ -10,8 +10,8 @@ CREATE TABLE entregas(
     uf VARCHAR(2),
     estado VARCHAR(100),
     regiao VARCHAR(100),
-    contaAgricultor_id UUID,
-    transportador_id UUID,
+    contaAgricultor_id BIGINT,
+    transportador_id BIGINT,
     CONSTRAINT fk_contaAgricultor FOREIGN KEY (contaAgricultor_id) REFERENCES contaAgricultor (id) ON DELETE CASCADE,
     CONSTRAINT fk_transportador FOREIGN KEY (transportador_id) REFERENCES transportador (id) ON DELETE CASCADE
 
