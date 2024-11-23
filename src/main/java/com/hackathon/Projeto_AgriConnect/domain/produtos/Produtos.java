@@ -32,7 +32,4 @@ public class Produtos {
     @Column(name="quantidade")
     private Integer quantidade;
 
-    @ManyToOne
-    @JoinColumn(name = "agricultor_id")
-    private Agricultor agricultor;
 }

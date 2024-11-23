@@ -66,11 +66,12 @@ public class agricultorController {
         agricultor.setUf(dadosCep.getUf());
         agricultor.setEstado(dadosCep.getEstado());
         agricultor.setRegiao(dadosCep.getRegiao());
+
         if (agricultor.getContaAgricultor() != null && agricultor.getContaAgricultor().getId() == null) {
             contaAgricultorServices.insertConta(agricultor.getContaAgricultor());
         }
 
-        // Insere o agricultor
+
         agricultorServices.insertAgricultor(agricultor);
 
         return ResponseEntity.ok(agricultor);
