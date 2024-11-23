@@ -29,4 +29,7 @@ public class Entregas {
 
     @Column(name="dataHoraEntrega")
     private LocalDateTime dataHoraEntrega;
+
+    @Column(name="localEntrega")
+    private String localEntrega;
 }

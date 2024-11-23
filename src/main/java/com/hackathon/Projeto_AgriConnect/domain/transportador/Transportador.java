@@ -1,5 +1,8 @@
 package com.hackathon.Projeto_AgriConnect.domain.transportador;
 
+import com.hackathon.Projeto_AgriConnect.domain.agricultor.Agricultor;
+import com.hackathon.Projeto_AgriConnect.domain.contaAgricultor.contaAgricultor;
+import com.hackathon.Projeto_AgriConnect.domain.entregas.Entregas;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,4 +34,8 @@ public class Transportador {
 
     @Column(name="areaCobertura")
     private float areaCobertura ;
+
+    @OneToOne
+    @JoinColumn(name = "entregas_id")
+    private Entregas entregas;
 }

@@ -1,5 +1,7 @@
 package com.hackathon.Projeto_AgriConnect.domain.produtos;
 
+import com.hackathon.Projeto_AgriConnect.domain.agricultor.Agricultor;
+import com.hackathon.Projeto_AgriConnect.domain.contaAgricultor.contaAgricultor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,4 +29,8 @@ public class Produtos {
 
     @Column(name="quantidade")
     private Integer quantidade;
+
+    @ManyToOne
+    @JoinColumn(name = "agricultor_id")
+    private Agricultor agricultor;
 }
