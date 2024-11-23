@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Entity
 @Table(name="entregas")
@@ -19,7 +20,7 @@ import java.time.LocalDateTime;
 public class Entregas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(Optional<Entregas> resultstrategy = GenerationType.UUID)
     private String id;
 
     @Column(name="produto")
