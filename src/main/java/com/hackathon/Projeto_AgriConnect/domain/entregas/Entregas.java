@@ -20,7 +20,7 @@ import java.util.Optional;
 public class Entregas {
 
     @Id
-    @GeneratedValue(Optional<Entregas> resultstrategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column(name="produto")
