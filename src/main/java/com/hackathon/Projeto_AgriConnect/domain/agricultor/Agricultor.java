@@ -42,8 +42,8 @@ public class Agricultor {
 
 
     @Column(name="produtosDisponiveis")
-    @OneToMany
-    private List<Produtos> produtosDisponiveisComQtd;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Produtos> produtosDisponiveis;
 
     @OneToOne
     @JoinColumn(name = "contaAgricultor_id")
