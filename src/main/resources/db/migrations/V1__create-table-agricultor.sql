@@ -1,5 +1,5 @@
 CREATE TABLE agricultor(
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    id BIGINT SERIAL  PRIMARY KEY NOT NULL,
     nome VARCHAR(100) NOT NULL,
     cep VARCHAR(200) NOT NULL,
     logradouro VARCHAR(100),
@@ -9,7 +9,7 @@ CREATE TABLE agricultor(
     uf VARCHAR(2),
     estado VARCHAR(100),
     regiao VARCHAR(100),
-    produtosDisponiveis VARCHAR(200) NOT NULL,
+    produtosDisponiveis VARCHAR(300) NOT NULL,
     quantidade INTEGER NOT NULL,
     contaAgricultor_id UUID,
     CONSTRAINT fk_contaAgricultor FOREIGN KEY (contaAgricultor_id) REFERENCES contaAgricultor (id) ON DELETE CASCADE,

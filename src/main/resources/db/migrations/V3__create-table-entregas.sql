@@ -1,5 +1,5 @@
 CREATE TABLE entregas(
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    id BIGINT SERIAL PRIMARY KEY NOT NULL,
     produto VARCHAR(100) NOT NULL,
     quantidade INTEGER NOT NULL,
     cep VARCHAR(200) NOT NULL,

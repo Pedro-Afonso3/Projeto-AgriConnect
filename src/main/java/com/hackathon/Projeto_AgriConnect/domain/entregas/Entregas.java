@@ -10,6 +10,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.UUID;
 
 @Entity
 @Table(name="entregas")
@@ -20,8 +21,8 @@ import java.util.Optional;
 public class Entregas {
 
     @Id
-    @GeneratedValue(Optional<Entregas> resultstrategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name="produto")
     private String produto;

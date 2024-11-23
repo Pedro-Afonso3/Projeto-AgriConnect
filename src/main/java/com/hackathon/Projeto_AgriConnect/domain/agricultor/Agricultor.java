@@ -23,8 +23,8 @@ import java.util.List;
 public class Agricultor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name="nome")
     private String nome;

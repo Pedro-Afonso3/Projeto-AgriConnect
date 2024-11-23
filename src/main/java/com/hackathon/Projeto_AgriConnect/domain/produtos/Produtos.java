@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
+import java.util.UUID;
+
 @Entity
 @Table(name="produtos")
 @Getter
@@ -18,7 +20,7 @@ import org.springframework.boot.autoconfigure.web.WebProperties;
 public class Produtos {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="nome")
