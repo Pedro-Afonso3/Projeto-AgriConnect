@@ -1,11 +1,12 @@
 ### Projeto AgriConnect Aplication
+
 <p>
     Plataforma que conecta pequenos agricultores a transportadores locais, facilitando o agendamento de entregas e otimizando a logística de escoamento de produtos agrícolas para mercados e consumidores.
 </p>
 
 ### Modelo de domínio AgriConnect
 
-``` mermaid
+```mermaid
 classDiagram
 
 class agricultor{
@@ -32,6 +33,14 @@ class entregas{
     entregas "1"*--"1" transportador
 
 ```
+
+## Dependencia para usar no pom.xml
+
+```xml
+
+
+```
+
 ### Protótipo
 
 ![Imagem 1](src/main/java/com/hackathon/Projeto_AgriConnect/imag/IMG-20241123-WA0001.jpg)
@@ -42,6 +51,7 @@ class entregas{
 ### Tecnologias Ultilizadas
 
 ## Back-End
+
 <ul>
 	<li>Java</li>
 	<li>Spring Boot</li>
@@ -54,6 +64,7 @@ class entregas{
 </ul>
 
 ## Front-End
+
 <ul>
 	<li>ReactJs</li>
 	<li>Sass</li>
