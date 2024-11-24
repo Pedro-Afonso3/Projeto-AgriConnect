@@ -2,7 +2,6 @@ package com.hackathon.Projeto_AgriConnect.services;
 
 import com.hackathon.Projeto_AgriConnect.domain.transportador.Transportador;
 import com.hackathon.Projeto_AgriConnect.repository.TransportadorRepository;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

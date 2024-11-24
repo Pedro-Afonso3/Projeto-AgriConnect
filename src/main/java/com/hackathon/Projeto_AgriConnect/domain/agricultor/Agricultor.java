@@ -3,7 +3,6 @@ package com.hackathon.Projeto_AgriConnect.domain.agricultor;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hackathon.Projeto_AgriConnect.domain.contaAgricultor.contaAgricultor;
-import com.hackathon.Projeto_AgriConnect.domain.entregas.Entregas;
 import com.hackathon.Projeto_AgriConnect.domain.produtos.Produtos;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

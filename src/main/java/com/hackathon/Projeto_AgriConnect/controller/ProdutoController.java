@@ -1,8 +1,6 @@
 package com.hackathon.Projeto_AgriConnect.controller;
 
 import com.hackathon.Projeto_AgriConnect.domain.produtos.Produtos;
-import com.hackathon.Projeto_AgriConnect.repository.ProdutosRepository;
-import com.hackathon.Projeto_AgriConnect.services.ProdutosServices;
 import com.hackathon.Projeto_AgriConnect.services.ProdutosServices;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
