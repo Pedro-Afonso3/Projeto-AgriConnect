@@ -20,7 +20,7 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity<Produtos> insertProdutos(@RequestBody Produtos produtos){
+    public ResponseEntity<Produtos> insertProdutos(@RequestBody @Valid Produtos produtos){
         produtosServices.insertProdutos(produtos);
         return ResponseEntity.ok(produtos);
     }
