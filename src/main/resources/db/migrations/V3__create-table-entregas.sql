@@ -11,6 +11,7 @@ CREATE TABLE entregas(
     estado VARCHAR(100),
     regiao VARCHAR(100),
     status VARCHAR(20),
+    dataHoraAgendada TIMESTAMP NOT NULL,
     contaAgricultor_id BIGINT,
     transportador_id BIGINT,
     CONSTRAINT fk_contaAgricultor FOREIGN KEY (contaAgricultor_id) REFERENCES contaAgricultor (id) ON DELETE CASCADE,

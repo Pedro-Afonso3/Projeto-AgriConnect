@@ -1,5 +1,6 @@
 package com.hackathon.Projeto_AgriConnect.domain.entregas;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hackathon.Projeto_AgriConnect.domain.agricultor.Agricultor;
 import com.hackathon.Projeto_AgriConnect.domain.transportador.Transportador;
 import jakarta.persistence.*;
@@ -8,12 +9,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name="entregas")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Entregas {
 
     @Id
@@ -46,4 +50,7 @@ public class Entregas {
     @OneToOne
     @JoinColumn(name = "transportador_id")
     private Transportador transportador;
+
+    @Column(name="horaDataAgendada")
+    private LocalDateTime horaDataAgendada;
 }

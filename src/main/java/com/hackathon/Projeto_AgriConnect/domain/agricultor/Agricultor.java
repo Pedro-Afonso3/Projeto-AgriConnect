@@ -28,8 +28,6 @@ public class Agricultor {
     @Column(name="nome")
     private String nome;
 
-
-
     private String cep;
     private String logradouro;
     private String complemento;
@@ -40,13 +38,13 @@ public class Agricultor {
     private String regiao;
 
 
-    @Column(name="produtosDisponiveis")
+    @Column(name="produtos_id")
     @JoinColumn(name = "Agricultor_id")
     @OneToMany
     private List<Produtos> produtos;
 
     @OneToOne
-    @JoinColumn(name = "Agricultor_id")
+    @JoinColumn(name = "agricultor_id")
     private contaAgricultor contaAgricultor;
 
 }
