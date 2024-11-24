@@ -18,7 +18,8 @@ import java.net.URL;
 import java.util.Optional;
 
 
-@RestController("/agricultor")
+@RestController
+@RequestMapping("/agricultor")
 public class agricultorController {
 
     @Autowired

@@ -20,8 +20,8 @@ public class Entregas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="produto")
-    private String produto;
+    @Column(name="nomeProduto")
+    private String nomeProduto;
 
     @Column(name="quantidade")
     private Integer quantidade;
@@ -35,6 +35,9 @@ public class Entregas {
     private String uf;
     private String estado;
     private String regiao;
+
+    @Column(name="status")
+    private String status;
 
     @OneToOne
     @JoinColumn(name = "agricultor_id")
