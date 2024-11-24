@@ -1,5 +1,4 @@
 package com.hackathon.Projeto_AgriConnect.domain.produtos;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -19,8 +19,8 @@ public class ProdutoController {
         return ResponseEntity.ok(produtosServices.showAll());
     }
 
-    @PostMapping("/insertProdutos")
-    public ResponseEntity<Produtos> insertProdutos(@RequestBody @Valid Produtos produtos){
+    @PostMapping
+    public ResponseEntity<Produtos> insertProdutos(@RequestBody Produtos produtos){
         produtosServices.insertProdutos(produtos);
         return ResponseEntity.ok(produtos);
     }
