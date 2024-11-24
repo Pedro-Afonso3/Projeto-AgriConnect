@@ -18,7 +18,7 @@ import jakarta.validation.Valid;
 public class AgriProdutoController {
   @Autowired
   private ProdutosRepository produtosRepository;
-
+  
   @PostMapping("/produtos")
   public ResponseEntity<ProdutosAgricultor> saveProdutos(@RequestBody @Valid AgriProduto agriProduto){
     var produtos = new ProdutosAgricultor();
