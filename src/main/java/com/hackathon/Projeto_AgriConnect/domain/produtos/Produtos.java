@@ -21,13 +21,13 @@ public class Produtos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
 
     @Column(name="nome")
     private String nome;
 
     @Column(name="preco")
-    private float preco;
+    private Float preco;
 
     @Column(name="quantidade")
     private Integer quantidade;

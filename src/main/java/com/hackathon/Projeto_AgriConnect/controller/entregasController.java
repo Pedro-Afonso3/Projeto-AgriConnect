@@ -4,25 +4,43 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.hackathon.Projeto_AgriConnect.domain.entregas.Entregas;
 import com.hackathon.Projeto_AgriConnect.services.entregasServices;
 
 @RestController
-@RequestMapping(value = "/agris")
+@RequestMapping(value = "/entregas")
 public class entregasController {
 
   @Autowired
-  private entregasServices serviciEntregasServices;
+  private entregasServices EntregasServices;
 
-  @GetMapping(value = "/{id}")
-  public Optional<Entregas> findByEntregas(@PathVariable Long id){
-    Optional<Entregas> result = serviciEntregasServices.findById(id);
-    return result;
+  @GetMapping
+  public ResponseEntity<Optional<Entregas>> findByIdEntregas(@PathVariable Long id){
+    Optional<Entregas> result = EntregasServices.findById(id);
+    return ResponseEntity.ok(result);
   }
+
+  @PostMapping
+  public ResponseEntity<Entregas> insertEntregas(@RequestBody Entregas entregas){
+    EntregasServices.insertEntregas(entregas);
+    return ResponseEntity.ok(entregas);
+  }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<Entregas> updateEntregas(@PathVariable Long id,@RequestBody Entregas entregas) throws Exception {
+    EntregasServices.updateEntregas(id,entregas);
+    return ResponseEntity.ok(entregas);
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Entregas> deleteEntregas(@PathVariable Long id){
+    EntregasServices.deleteEntregas(id);
+    return ResponseEntity.ok().build();
+  }
+
+
 
 }

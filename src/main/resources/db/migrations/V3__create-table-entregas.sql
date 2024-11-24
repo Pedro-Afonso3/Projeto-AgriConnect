@@ -1,6 +1,6 @@
 CREATE TABLE entregas(
     id BIGINT SERIAL PRIMARY KEY NOT NULL,
-    produto VARCHAR(100) NOT NULL,
+    nomeProduto VARCHAR(100) NOT NULL,
     quantidade INTEGER NOT NULL,
     cep VARCHAR(200) NOT NULL,
     logradouro VARCHAR(100),
@@ -10,6 +10,7 @@ CREATE TABLE entregas(
     uf VARCHAR(2),
     estado VARCHAR(100),
     regiao VARCHAR(100),
+    status VARCHAR(20),
     contaAgricultor_id BIGINT,
     transportador_id BIGINT,
     CONSTRAINT fk_contaAgricultor FOREIGN KEY (contaAgricultor_id) REFERENCES contaAgricultor (id) ON DELETE CASCADE,

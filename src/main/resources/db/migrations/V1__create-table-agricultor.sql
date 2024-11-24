@@ -9,7 +9,7 @@ CREATE TABLE agricultor(
     uf VARCHAR(2),
     estado VARCHAR(100),
     regiao VARCHAR(100),
-    produtosDisponiveis VARCHAR(300) NOT NULL
-    contaAgricultor_id BIGINT,
-    CONSTRAINT fk_contaAgricultor FOREIGN KEY (contaAgricultor_id) REFERENCES contaAgricultor (id) ON DELETE CASCADE,
+    produtos_id BIGINT,
+    CONSTRAINT fk_produtos FOREIGN KEY (produtos_id) REFERENCES produtos (id) ON DELETE CASCADE
+
 );

@@ -28,15 +28,12 @@ public class AgricultorServices {
             if(agricultor.getNome() != null){
                 agricultorExists.setNome(agricultor.getNome());
             }
-
             if(agricultor.getCep() != null){
                 agricultorExists.setCep(agricultor.getCep());
             }
-
             if(agricultor.getEstado() != null){
                 agricultorExists.setEstado(agricultor.getEstado());
             }
-
             if(agricultor.getUf() != null){
                 agricultorExists.setUf(agricultor.getUf());
             }
@@ -52,8 +49,8 @@ public class AgricultorServices {
             if(agricultor.getLogradouro() != null){
                 agricultorExists.setLogradouro(agricultor.getLogradouro());
             }
-            if(agricultor.getProdutosDisponiveis() != null){
-                agricultorExists.setProdutosDisponiveis(agricultor.getProdutosDisponiveis());
+            if(agricultor.getProdutos() != null){
+                agricultorExists.setProdutos(agricultor.getProdutos());
             }
             if(agricultor.getRegiao() != null){
                 agricultorExists.setRegiao(agricultor.getRegiao());

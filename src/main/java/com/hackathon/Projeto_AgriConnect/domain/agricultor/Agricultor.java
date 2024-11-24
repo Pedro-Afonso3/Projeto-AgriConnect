@@ -42,11 +42,12 @@ public class Agricultor {
 
 
     @Column(name="produtosDisponiveis")
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Produtos> produtosDisponiveis;
+    @JoinColumn(name = "Agricultor_id")
+    @OneToMany
+    private List<Produtos> produtos;
 
     @OneToOne
-    @JoinColumn(name = "contaAgricultor_id")
+    @JoinColumn(name = "Agricultor_id")
     private contaAgricultor contaAgricultor;
 
 }
