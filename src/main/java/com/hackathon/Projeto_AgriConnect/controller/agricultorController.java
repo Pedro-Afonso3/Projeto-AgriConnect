@@ -2,8 +2,6 @@ package com.hackathon.Projeto_AgriConnect.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hackathon.Projeto_AgriConnect.domain.agricultor.Agricultor;
-import com.hackathon.Projeto_AgriConnect.domain.contaAgricultor.contaAgricultor;
-import com.hackathon.Projeto_AgriConnect.repository.AgricultorRepository;
 import com.hackathon.Projeto_AgriConnect.services.AgricultorServices;
 import com.hackathon.Projeto_AgriConnect.services.contaAgricultorServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 //import com.google.gson.Gson;
-import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.Moshi;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.Optional;
 
 

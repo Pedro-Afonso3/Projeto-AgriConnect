@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackathon.Projeto_AgriConnect.domain.produtos.AgriProduto;
-import com.hackathon.Projeto_AgriConnect.domain.produtos.Produtos;
+import com.hackathon.Projeto_AgriConnect.domain.produtos.ProdutosAgricultor;
 import com.hackathon.Projeto_AgriConnect.repository.ProdutosRepository;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -20,8 +20,8 @@ public class AgriProdutoController {
   private ProdutosRepository produtosRepository;
 
   @PostMapping("/produtos")
-  public ResponseEntity<Produtos> saveProdutos(@RequestBody @Valid AgriProduto agriProduto){
-    var produtos = new Produtos();
+  public ResponseEntity<ProdutosAgricultor> saveProdutos(@RequestBody @Valid AgriProduto agriProduto){
+    var produtos = new ProdutosAgricultor();
     BeanUtils.copyProperties(agriProduto, produtos);
     return ResponseEntity.status(HttpStatus.CREATED).body(produtosRepository.save(produtos));
   }
